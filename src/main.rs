@@ -1,5 +1,5 @@
 use hyper::{Body, Request, Response, Server, Method};
-use hyper::service::{service_fn};
+use hyper::service::service_fn;
 use std::fs::File;
 use std::io::prelude::*;
 use std::convert::Infallible;
@@ -49,8 +49,6 @@ fn serve_html(file_path: &str) -> Result<String, std::io::Error> {
 #[tokio::main]
 async fn main() {
     let addr = ([127, 0, 0, 1], 8080).into();
-
-    let make_svc = service_fn(handle_request);
 
     let server = Server::bind(&addr).serve(hyper::service::make_service_fn(|_| async {
         Ok::<_, Infallible>(service_fn(handle_request))
