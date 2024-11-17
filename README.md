@@ -1,1 +1,1 @@
-page[https://rusting-server-921y.onrender.com]
+https://rusting-server-921y.onrender.com
